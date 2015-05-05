@@ -1,0 +1,42 @@
+<% content_for :title, 'News for Me' %>
+
+<div class="hero-unit hero-unit-header">
+  <div class="container">
+    <h1>News for You</h1>
+    <p>Tech news for topics you care about.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="span2">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="<%= set_active_class %>">
+          <%= link_to 'Recent', news_index_path %>
+        </li>
+        <% @categories.each do |category| %>
+          <li class="<%= set_active_class category.id %>">
+            <%= link_to category.name, news_path(category) %>
+          </li>
+        <% end %>
+        <li class="nav-divider"></li>
+        <li>
+          <a href="<%= news_subscriptions_path %>">
+            <i class="icon-cog"></i> Settings
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="news-container" class="span10 news-stories">
+      <iframe id="news-frame"
+              src="<%= entries_news_index_path(id: params[:id]) %>"
+              sandbox>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'news' %>
+<% end %>

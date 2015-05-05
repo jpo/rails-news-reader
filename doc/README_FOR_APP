@@ -1,0 +1,11 @@
+MyChart SSO Settings
+====================
+
+The settings below are required to be set in MyChart in order for single-sign on to work. For further information,
+please see Epic's documentation: https://galaxy.epic.com/?#Browse/page=7900!68!40!120921,96554
+
+    SSOEnabled=True
+    SSOAuthProgID=EWPSSOLogin79.WPSSOloginCallBk
+    JSEnabled=1
+    TokenCheckURL=https://[domain]/my_chart/sessions/new
+    CookieName=_portal_session

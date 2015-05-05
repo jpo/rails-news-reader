@@ -1,0 +1,17 @@
+<% @entries.each do |entry| %>
+  <div class="row push-down">
+    <div class="span9 news-story">
+      <h4 class="news-title">
+        <%= link_to entry.title.sanitize, entry.url, target: '_blank' %>
+      </h4>
+
+      <p class="news-summary">
+        <%= entry.summary.html_safe %>
+      </p>
+
+      <small class="news-published">
+        <%= entry.published.to_date.to_s(:long) %>
+      </small>
+    </div>
+  </div>
+<% end %>

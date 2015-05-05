@@ -1,0 +1,34 @@
+<% content_for :title, 'Manage Your Subscriptions' %>
+
+<div class="hero-unit hero-unit-header">
+  <div class="container">
+    <h1>Manage Your Subscriptions</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <%= form_for @categories, url: news_subscriptions_url, method: :put do %>
+        <div class="preference-header push30">
+          <h2>News Feeds <small>Select topics that interest you.</small></h2>
+        </div>
+        <div class="preference-list push30">
+          <% @categories.each do |category| %>
+            <div class="preference-control" data-method="toggle">
+              <div class="pull-right">
+                <i class="icon-check-empty"></i>
+                <%= hidden_field_tag "categories[#{category.id}]", subscribed?(category.id) %>
+              </div>
+              <label><%= category.name %></label>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="toolbar text-right">
+          <%= submit_tag "Save Subscriptions", class: 'btn btn-large btn-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

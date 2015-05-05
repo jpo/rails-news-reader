@@ -1,0 +1,33 @@
+<% content_for :title, 'Resend Confirmation Instructions' %>
+
+<div class="hero-unit hero-unit-header">
+  <div class="container">
+    <h1>Resend Email Confirmation</h1>
+  </div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="span8 offset2">
+  <div class="well well-white well-form">
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: 'post', class: 'form-horizontal' }) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="control-group">
+        <%= f.label :email, class: 'control-label' %>
+        <div class="controls">
+          <%= f.email_field :email, :autofocus => true %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit "Resend confirmation", class: 'btn' %>
+        </div>
+      </div>
+      <p class="text-center">
+        <%= render "devise/shared/links" %>
+      </p>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>

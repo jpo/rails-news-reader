@@ -1,0 +1,39 @@
+<% content_for :title, 'Sign In' %>
+
+<div class="hero-unit hero-unit-header">
+  <div class="container">
+    <h1>Welcome Back!</h1>
+    <p>Sign in to your account.</p>
+  </div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="span8 offset2">
+  <div class="well well-white well-form">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' }) do |f| %>
+      <div class="control-group">
+        <%= f.label :email, class: 'control-label' %>
+        <div class="controls">
+          <%= f.email_field :email, :autofocus => true %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :password, class: 'control-label' %>
+        <div class="controls">
+          <%= f.password_field :password %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit "Sign in", class: 'btn' %>
+        </div>
+      </div>
+    <% end %>
+    <p class="text-center">
+        <%= render "devise/shared/links" %>
+    </p>
+  </div>
+</div>
+</div>
+</div>

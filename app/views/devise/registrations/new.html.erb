@@ -1,0 +1,61 @@
+<% content_for :title, 'Sign Up' %>
+
+<div class="hero-unit hero-unit-header">
+  <div class="container">
+    <h1>Set Up Your Account</h1>
+    <p>You'll be up and running in less than a minute.</p>
+  </div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="span8 offset2">
+  <%= devise_error_messages! %>
+  <div class="well well-white well-form">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f| %>
+      <div class="control-group">
+        <label for="first_name" class="control-label">First Name</label>
+        <div class="controls">
+          <%= f.text_field :first_name, autofocus: true, placeholder: 'John' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <label for="last_name" class="control-label">Last Name</label>
+        <div class="controls">
+          <%= f.text_field :last_name, placeholder: 'Smith' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :email, class: 'control-label' %>
+        <div class="controls">
+          <%= f.email_field :email, placeholder: 'john.smith@acme.com' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :password, class: 'control-label' %>
+        <div class="controls">
+          <%= f.password_field :password, placeholder: '8 or more characters' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :password_confirmation, class: 'control-label' %>
+        <div class="controls">
+          <%= f.password_field :password_confirmation, placeholder: 'Must match password' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit "Create my account", class: 'btn btn-large btn-success', id: 'step1-action' %>
+        </div>
+      </div>
+
+      <p class="muted text-center">
+        By clicking you agree to the <%= link_to 'Terms of Use', '#' %>
+        and <%= link_to 'Privacy', '#' %> policies.
+      </p>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
